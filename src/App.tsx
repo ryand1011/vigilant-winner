@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './App.css';
 import { MainLayout } from './components/layout/MainLayout';
 import { NotFound } from './components/pages/NotFound';
@@ -10,26 +10,34 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        light: '#63b8ff',
-        main: '#0989e3',
-        dark: '#005db0',
+        light: '#65C37D',
+        main: '#3fb55d',
+        dark: '#2C7E41',
         contrastText: '#000',
       },
       secondary: {
-        main: '#4db6ac',
-        light: '#82e9de',
-        dark: '#00867d',
+        main: '#0200F5',
+        light: '#3433F7',
+        dark: '#0100AB',
+        contrastText: '#000',
+      },
+      error: {
+        main: '#de2014',
+        light: '#E44C43',
+        dark: '#9B160E',
         contrastText: '#000',
       },
     },
   });
 
   return (
-    <Routes>
-      <Route path="/" element={<MainLayout message="welcome" />} />
-      <Route path="/about" element={<h1>About Page</h1>} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path="/" element={<MainLayout message="welcome" />} />
+        <Route path="/about" element={<h1>About Page</h1>} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ThemeProvider>
   );
 }
 
