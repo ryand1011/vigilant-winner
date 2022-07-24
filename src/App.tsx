@@ -33,7 +33,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Routes>
-        <Route path="/" element={<MainLayout message="welcome" />} />
+        <Route path="/" element={<MainLayout />} />
         <Route path="/about" element={<h1>About Page</h1>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
